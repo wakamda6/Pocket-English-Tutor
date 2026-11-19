@@ -15,6 +15,13 @@
 - 添加字库前评估 Flash 与内部 RAM 影响；ESP32-C3 无 PSRAM。
 - 不提交许可不允许分发的字库。
 
+英语外教界面的操作提示使用 `fonts/tutor_ui_font_16.c`，标题使用
+`fonts/tutor_ui_font_20.c`。两者均为锁定版本的 LVGL 组件中
+`scripts/built_in_font/SourceHanSansSC-Normal.otf` 的 4 位字库子集，随附
+[SIL 开放字体许可证](fonts/source-han-sans-sc-license.txt)。
+生成文件中记录了 `lv_font_conv` 1.5.3 的命令和设备界面所需的可打印 ASCII
+及汉字。修改设备文案时，请按 `main/english_tutor.c` 更新字符清单。
+
 ## 图片（images）
 
 可复用的源图与生成的显示资产放在 `images/`。

@@ -17,6 +17,15 @@ Store reusable font files and generated font sources in `fonts/`.
 - Check Flash and internal-RAM impact before adding a font; the ESP32-C3 has no PSRAM.
 - Do not commit fonts whose license does not permit redistribution.
 
+The English tutor uses `fonts/tutor_ui_font_16.c` for instructions and
+`fonts/tutor_ui_font_20.c` for headings. Both are 4-bit subsets of the
+Source Han Sans SC Normal font bundled with the pinned LVGL component at
+`scripts/built_in_font/SourceHanSansSC-Normal.otf`. The
+[SIL Open Font License](fonts/source-han-sans-sc-license.txt) accompanies the
+generated fonts. Each file records the command for `lv_font_conv` 1.5.3 and
+the inventory of printable ASCII and Chinese characters used on the device.
+Update that inventory from `main/english_tutor.c` when changing screen text.
+
 ## Images
 
 Store reusable source images and generated display assets in `images/`.

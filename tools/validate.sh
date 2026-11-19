@@ -32,6 +32,27 @@ run_static_checks() {
 
     test_dir="$(mktemp -d /tmp/ai-passport-host-tests.XXXXXX)"
     "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_pcm.c main/tutor_pcm.c -o "${test_dir}/test_tutor_pcm"
+    "${test_dir}/test_tutor_pcm"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_setup_form.c main/tutor_setup_form.c -o "${test_dir}/test_tutor_setup_form"
+    "${test_dir}/test_tutor_setup_form"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_setup_dns.c main/tutor_setup_dns.c -o "${test_dir}/test_tutor_setup_dns"
+    "${test_dir}/test_tutor_setup_dns"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_turn.c -o "${test_dir}/test_tutor_turn"
+    "${test_dir}/test_tutor_turn"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_cloud_message.c main/tutor_cloud_message.c -o "${test_dir}/test_tutor_cloud_message"
+    "${test_dir}/test_tutor_cloud_message"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_playback.c -o "${test_dir}/test_tutor_playback"
+    "${test_dir}/test_tutor_playback"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_tutor_adpcm.c main/tutor_adpcm.c -o "${test_dir}/test_tutor_adpcm"
+    "${test_dir}/test_tutor_adpcm"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
         tests/test_ui_pixel_math.c main/ui_pixel_math.c \
         -o "${test_dir}/test_ui_pixel_math"
     "${test_dir}/test_ui_pixel_math"
